@@ -1,12 +1,21 @@
-import Test from "../models/Test.js";
+import Answer from "../models/Answer";
+import Question from "../models/Question";
+import Quiz from "../models/Quiz";
 
 export const seedDb = async () => {
-  await seedTests();
-};
-
-const seedTests = async () => {
-  await Test.truncate();
-  await Test.create({
-    name: "TestName-" + Math.floor(Math.random() * 10 ** 5),
+  const quiz = await Quiz.create({ title: "Test Quiz" });
+  const question = await Question.create({
+    quizId: quiz.id,
+    questionText: "Did this work?",
+  });
+  Answer.create({
+    questionId: question.id,
+    answerText: "Yes",
+    isCorrect: true,
+  });
+  await Answer.create({
+    questionId: question.id,
+    answerText: "No",
+    isCorrect: false,
   });
 };

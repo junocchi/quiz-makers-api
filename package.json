@@ -3,11 +3,10 @@
   "version": "0.1.0",
   "description": "An educational assessment API written in Koa and Typescript",
   "main": "src/main.ts",
-  "type": "module",
   "scripts": {
     "dev": "tsx watch src/main.ts",
     "build": "tsc",
-    "start": "node main.js",
+    "start": "node build/main.js",
     "test": "test"
   },
   "author": "Makers Academy",

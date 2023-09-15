@@ -1,5 +1,5 @@
 import Router from "@koa/router";
-import QuestionController from "../controllers/question_controller.js";
+import QuestionController from "../controllers/QuestionController";
 
 const router = new Router({ prefix: "/questions" });
 

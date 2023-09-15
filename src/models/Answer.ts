@@ -1,10 +1,12 @@
-import { ForeignKey, Model, Optional } from "sequelize";
-import Question from "./Question.js";
+import { DataTypes, ForeignKey, Model, Optional } from "sequelize";
+import Question from "./Question";
+import DBConnection from "../db/DBConnection";
 
 export type AnswerAttributes = {
   id: string;
-  question_id: ForeignKey<Question["id"]>;
-  answer_text: string;
+  questionId: ForeignKey<Question["id"]>;
+  answerText: string;
+  isCorrect: boolean;
 };
 
 // We're telling the Model that 'id' is optional
@@ -14,8 +16,28 @@ type AnswerCreationAttributes = Optional<AnswerAttributes, "id">;
 class Answer extends Model<AnswerAttributes, AnswerCreationAttributes> {
   declare id: number;
   declare name: string;
-  declare question_id: ForeignKey<Question["id"]>;
+  declare questionId: ForeignKey<Question["id"]>;
+  declare isCorrect: boolean;
   // other attributes...
 }
+
+export const init = () => {
+  Answer.init(
+    {
+      id: {
+        type: DataTypes.INTEGER,
+        autoIncrement: true,
+        primaryKey: true,
+      },
+      answerText: {
+        type: DataTypes.STRING,
+      },
+      isCorrect: {
+        type: DataTypes.BOOLEAN,
+      },
+    },
+    { sequelize: DBConnection.connection() }
+  );
+};
 
 export default Answer;

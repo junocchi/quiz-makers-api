@@ -1,5 +1,5 @@
-import Quiz from "./Quiz.js";
-import Question from "./Question.js";
-import Answer from "./Answer.js";
+import Quiz from "./Quiz";
+import Question from "./Question";
+import Answer from "./Answer";
 
 export default { Answer, Quiz, Question };

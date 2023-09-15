@@ -1,5 +1,5 @@
 import Router from "@koa/router";
-import Question, { QuestionCreationAttributes } from "../models/Question.js";
+import Question, { QuestionCreationAttributes } from "../models/Question";
 
 const validateQuestion = (data: any): data is QuestionCreationAttributes => {
   const valid =

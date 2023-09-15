@@ -34,7 +34,3 @@ GET /quiz&id=123
 ```
 
 POST /quiz
-
-POST /attempt/answer
-
-POST /attempt/new

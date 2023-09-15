@@ -2,9 +2,9 @@
   "compilerOptions": {
     "strict": true,
     "outDir": "build",
-    "module": "ESNext",
     "moduleResolution": "NodeNext",
-    "target": "ESNext"
+    "target": "ESNext",
+    "allowSyntheticDefaultImports": true
   },
   "include": ["src/**/*.ts"]
 }

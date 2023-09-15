@@ -1,14 +1,16 @@
 import Koa from "koa";
 import { bodyParser } from "@koa/bodyparser";
-import testRouter from "./routers/test_router.js";
-import quizRouter from "./routers/quiz_router.js";
-import questionRouter from "./routers/question_router.js";
+
+import quizRouter from "./routers/quizRouter";
+import questionRouter from "./routers/questionRouter";
+import answerRouter from "./routers/answerRouter";
 
 const app = new Koa();
 
 app.use(bodyParser());
-app.use(testRouter.routes());
+
 app.use(quizRouter.routes());
 app.use(questionRouter.routes());
+app.use(answerRouter.routes());
 
 export default app;
