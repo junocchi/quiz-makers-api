@@ -7,7 +7,7 @@
     "dev": "NODE_ENV=development tsx watch src/main.ts",
     "build": "tsc",
     "start": "node build/main.js",
-    "test": "test"
+    "test": "vitest"
   },
   "author": "Makers Academy",
   "license": "ISC",

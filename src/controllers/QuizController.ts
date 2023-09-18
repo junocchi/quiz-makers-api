@@ -58,7 +58,7 @@ const find: Router.Middleware = async (ctx) => {
     console.error(err);
     ctx.response.status = 500;
     const response: QuizErrorResponse = { err: "Quiz not found" };
-    ctx.body = { err: "Unable to find quiz with id: ", id };
+    ctx.body = response;
   }
 };
 

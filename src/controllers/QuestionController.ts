@@ -4,7 +4,7 @@ import Question, { QuestionCreationAttributes } from "../models/Question";
 const validateQuestion = (data: any): data is QuestionCreationAttributes => {
   const valid =
     typeof data?.question_text === "string" &&
-    data?.question_type === "multiple_choice" &&
+    typeof data?.is_correct === "boolean" &&
     !Number.isNaN(parseInt(data?.quiz_id));
 
   if (!valid) console.log(data);
