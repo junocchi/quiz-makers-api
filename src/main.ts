@@ -6,7 +6,7 @@ import http from "http";
 import DBConnection from "./db/DBConnection";
 
 import app from "./app";
-import { setupModels } from "./models/setupModels";
+import { setupModels } from "./db/setupModels";
 
 const run = async () => {
   await DBConnection.connect();

@@ -15,10 +15,14 @@ class DBConnection {
 
   static async connect() {
     if (DBConnection.#sequelize) {
-      return;
+      return DBConnection.#sequelize;
     }
 
-    const connectionString = process.env.DB_URL;
+    console.log("process.env.NODE_ENV:", process.env.NODE_ENV);
+    const connectionString =
+      process.env.NODE_ENV === "test"
+        ? process.env.TEST_DB_URL
+        : process.env.DB_URL;
 
     if (!connectionString) {
       throw new Error(
@@ -37,6 +41,8 @@ class DBConnection {
     }
 
     DBConnection.#sequelize = sequelize;
+
+    return sequelize;
   }
 }
 

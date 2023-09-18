@@ -41,7 +41,8 @@ const find: Router.Middleware = async (ctx) => {
       const questions = await Question.findAll({ where: { quizId: id } });
 
       const response: QuizApiResponse = {
-        ...quiz,
+        id: quiz.id,
+        title: quiz.title,
         questions: questions.map((q) => ({
           id: q.id,
           question_text: q.questionText,
