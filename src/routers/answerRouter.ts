@@ -1,5 +1,5 @@
 import Router from "@koa/router";
-import AnswerController from "../controllers/AnswerController";
+import AnswerController from "../controllers/AnswerController.js";
 
 const router = new Router({ prefix: "/answers" });
 

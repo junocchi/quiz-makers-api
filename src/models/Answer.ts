@@ -1,6 +1,6 @@
 import { DataTypes, ForeignKey, Model, Optional } from "sequelize";
-import Question from "./Question";
-import DBConnection from "../db/DBConnection";
+import Question from "./Question.js";
+import DBConnection from "../db/DBConnection.js";
 
 export type AnswerAttributes = {
   id: string;

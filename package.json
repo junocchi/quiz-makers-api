@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "description": "An educational assessment API written in Koa and Typescript",
   "main": "src/main.ts",
+  "type": "module",
   "scripts": {
     "dev": "NODE_ENV=development tsx watch src/main.ts",
     "build": "tsc",

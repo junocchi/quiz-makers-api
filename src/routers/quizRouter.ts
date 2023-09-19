@@ -1,5 +1,6 @@
 import Router from "@koa/router";
-import QuizController from "../controllers/QuizController";
+
+import QuizController from "../controllers/QuizController.js";
 
 const router = new Router({ prefix: "/quizzes" });
 

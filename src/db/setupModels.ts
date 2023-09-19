@@ -1,8 +1,7 @@
-import DBConnection from "./DBConnection";
-import { seedDb } from "./seedDb";
-import Answer, { init as answerInit } from "../models/Answer";
-import Quiz, { init as quizInit } from "../models/Quiz";
-import Question, { init as questionInit } from "../models/Question";
+import DBConnection from "./DBConnection.js";
+import Answer, { init as answerInit } from "../models/Answer.js";
+import Quiz, { init as quizInit } from "../models/Quiz.js";
+import Question, { init as questionInit } from "../models/Question.js";
 
 const initModels = () => {
   quizInit();

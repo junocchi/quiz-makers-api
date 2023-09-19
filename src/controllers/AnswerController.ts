@@ -1,5 +1,5 @@
 import * as Router from "@koa/router";
-import Answer from "../models/Answer";
+import Answer from "../models/Answer.js";
 
 const getByQuestionId: Router.Middleware = async (ctx) => {
   try {

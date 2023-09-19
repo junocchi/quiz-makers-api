@@ -1,6 +1,6 @@
-import Answer from "../models/Answer";
-import Question from "../models/Question";
-import Quiz from "../models/Quiz";
+import Answer from "../models/Answer.js";
+import Question from "../models/Question.js";
+import Quiz from "../models/Quiz.js";
 
 export const seedDb = async () => {
   await Quiz.truncate({ cascade: true });

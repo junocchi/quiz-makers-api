@@ -1,6 +1,5 @@
 import { DataTypes, Model, Optional } from "sequelize";
-import DBConnection from "../db/DBConnection";
-import Question from "./Question";
+import DBConnection from "../db/DBConnection.js";
 
 // https://sequelize.org/docs/v6/other-topics/typescript/#usage
 type QuizAttributes = {

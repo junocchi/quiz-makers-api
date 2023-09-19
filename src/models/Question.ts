@@ -1,11 +1,8 @@
 import { DataTypes, ForeignKey, Model, Optional } from "sequelize";
 
-import DBConnection from "../db/DBConnection";
-import Quiz from "./Quiz";
-import Answer from "./Answer";
-// import Answer from "./Answer";
-
-type QuestionType = "multiple_choice";
+import DBConnection from "../db/DBConnection.js";
+import Quiz from "./Quiz.js";
+import Answer from "./Answer.js";
 
 type QuestionAttributes = {
   id: number;

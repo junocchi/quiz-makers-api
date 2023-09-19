@@ -3,10 +3,10 @@ dotenv.config();
 
 import http from "http";
 
-import DBConnection from "./db/DBConnection";
+import DBConnection from "./db/DBConnection.js";
 
-import app from "./app";
-import { setupModels } from "./db/setupModels";
+import app from "./app.js";
+import { setupModels } from "./db/setupModels.js";
 
 const run = async () => {
   await DBConnection.connect();

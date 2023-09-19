@@ -1,13 +1,13 @@
 import Router from "@koa/router";
 
-import Quiz from "../models/Quiz";
-import Question from "../models/Question";
+import Quiz from "../models/Quiz.js";
+import Question from "../models/Question.js";
 import {
   QuizApiResponse,
   QuizCreateResponse,
   QuizErrorResponse,
   QuizListResponse,
-} from "../api/QuizApi";
+} from "../api/QuizApi.js";
 
 const create: Router.Middleware = async (ctx) => {
   console.log("Inside Quizcontroller:");
