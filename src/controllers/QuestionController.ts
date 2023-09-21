@@ -4,7 +4,8 @@ import Question, { QuestionCreationAttributes } from "../models/Question.js";
 const validateQuestion = (data: any): data is QuestionCreationAttributes => {
   const valid =
     typeof data?.question_text === "string" &&
-    typeof data?.is_correct === "boolean" &&
+    // question is not boolean, only the answers. So we dont need the line below
+    // typeof data?.is_correct === "boolean" &&
     !Number.isNaN(parseInt(data?.quiz_id));
 
   if (!valid) console.log(data);
