@@ -1,3 +1,5 @@
+import Question from "../models/Question.js";
+
 export type QuizApiQuestion = {
   id: number;
   question_text: string;
@@ -21,4 +23,8 @@ export type Quiz = {
 };
 export type QuizListResponse = {
   quizzes: Quiz[];
+};
+
+export type QuestionListResponse = {
+  questions: Question[];
 };
