@@ -1,3 +1,4 @@
+import { ForeignKey } from "sequelize";
 import Question from "../models/Question.js";
 
 export type QuizApiQuestion = {
@@ -27,4 +28,10 @@ export type QuizListResponse = {
 
 export type QuestionListResponse = {
   questions: Question[];
+};
+
+export type QuestionApiResponse = {
+  id: number;
+  questionText: string;
+  quizId: ForeignKey<Quiz["id"]>;
 };
