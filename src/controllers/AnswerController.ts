@@ -1,10 +1,13 @@
 import * as Router from "@koa/router";
-import Answer, { AnswerCreationAttributes } from "../models/Answer.js";
-import { AnswerCreateResponse } from "../api/QuizApi.js";
+import Answer, {
+  AnswerCreationAttributes,
+  AnswerAttributes,
+} from "../models/Answer.js";
+import { AnswerCreateResponse, CorrectAnswerResponse } from "../api/QuizApi.js";
 
 const getByQuestionId: Router.Middleware = async (ctx) => {
   try {
-    const questionId = ctx.params.question_id;
+    const questionId = ctx.params.questionId;
     if (!questionId) {
       throw new Error("No question_id parameter found");
     }
@@ -40,6 +43,7 @@ const create: Router.Middleware = async (ctx) => {
     const response: AnswerCreateResponse = {
       message: `Answer ${answer.id} (${answer.isCorrect}) for question ${answer.questionId} created.`,
     };
+    ctx.body = response;
   } catch (err) {
     console.log(err);
     ctx.response.status = 500;
@@ -47,10 +51,25 @@ const create: Router.Middleware = async (ctx) => {
   }
 };
 
-const getCorrectAnswer: Router.Middleware = () => {};
+const getCorrectAnswer: Router.Middleware = async (ctx) => {
+  const questionId = ctx.params.questionId;
+  if (!questionId) {
+    throw new Error("No question_id parameter found");
+  }
+  const answer = await Answer.findOne({
+    where: { questionId: questionId, isCorrect: true },
+  });
+
+  // const response: CorrectAnswerResponse = {
+  //   message: `correct answer: ${answer.answerText}`,
+  // };
+
+  ctx.body = answer;
+};
 
 const AnswerController = {
   create,
+  validateAnswer,
   getByQuestionId,
   getCorrectAnswer,
 };
