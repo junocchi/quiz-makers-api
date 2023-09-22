@@ -5,7 +5,7 @@
   "main": "src/main.ts",
   "type": "module",
   "scripts": {
-    "dev": "NODE_ENV=development tsx watch src/main.ts",
+    "dev": "cross-env NODE_ENV=development tsx watch src/main.ts",
     "build": "tsc",
     "start": "node build/main.js",
     "test": "vitest"

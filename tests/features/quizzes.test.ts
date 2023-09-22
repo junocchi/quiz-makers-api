@@ -20,3 +20,9 @@ test("Checking answers endpoint", async () => {
   expect(response.status).toBe(200);
   expect(response.body.answers[0].answerText).toBe("Yes");
 });
+
+test("Deleting a quiz", async () => {
+  const response = await request(app.callback()).delete("/quizzes/1");
+  expect(response.status).toBe(200);
+  expect(response.body.message).toBe("Quiz with ID: 1 deleted");
+});

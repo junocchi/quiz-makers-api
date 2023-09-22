@@ -35,3 +35,7 @@ export type QuestionApiResponse = {
   questionText: string;
   quizId: ForeignKey<Quiz["id"]>;
 };
+
+export type QuizDeleteResponse = {
+  message: string;
+};
