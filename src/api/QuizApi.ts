@@ -26,6 +26,10 @@ export type QuizListResponse = {
   quizzes: Quiz[];
 };
 
+export type AnswerCreateResponse = {
+  message: string;
+};
+
 export type QuestionListResponse = {
   questions: Question[];
 };
