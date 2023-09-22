@@ -1,8 +1,5 @@
 import * as Router from "@koa/router";
-import Answer, {
-  AnswerCreationAttributes,
-  AnswerAttributes,
-} from "../models/Answer.js";
+import Answer, { AnswerCreationAttributes } from "../models/Answer.js";
 import { AnswerCreateResponse, CorrectAnswerResponse } from "../api/QuizApi.js";
 
 const getByQuestionId: Router.Middleware = async (ctx) => {

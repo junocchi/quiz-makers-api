@@ -3,7 +3,7 @@ import Question from "../models/Question.js";
 import Quiz from "../models/Quiz.js";
 
 export const seedDb = async () => {
-  await Quiz.truncate({ cascade: true });
+  await Quiz.truncate({ cascade: true, restartIdentity: true });
   const quiz = await Quiz.create({ title: "Test Quiz" });
   const question = await Question.create({
     quizId: quiz.id,
