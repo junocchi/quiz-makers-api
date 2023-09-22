@@ -43,3 +43,7 @@ export type QuestionApiResponse = {
 export type QuizDeleteResponse = {
   message: string;
 };
+
+export type CorrectAnswerResponse = {
+  message: string;
+};
