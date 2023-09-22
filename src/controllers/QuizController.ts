@@ -7,6 +7,7 @@ import {
   QuizCreateResponse,
   QuizErrorResponse,
   QuizListResponse,
+  QuizDeleteResponse,
 } from "../api/QuizApi.js";
 
 const create: Router.Middleware = async (ctx) => {
@@ -62,10 +63,32 @@ const find: Router.Middleware = async (ctx) => {
   }
 };
 
+// removes quiz at id from db. Not named delete due to strict mode.
+const deleteQuiz: Router.Middleware = async (ctx) => {
+  const id = ctx.params.id;
+  try {
+    // DELETE FROM quizzes WHERE id = <id>;
+    await Quiz.destroy({ where: { id } });
+    // ensure the response is in the right shape
+    const response: QuizDeleteResponse = {
+      message: `Quiz with ID: ${id} deleted`,
+    };
+    ctx.body = response;
+  } catch (err) {
+    console.error(err);
+    ctx.response.status = 500; //internal server error
+    const response: QuizErrorResponse = {
+      err: `Unable to delete quiz with id: ${id}`,
+    };
+    ctx.body = response;
+  }
+};
+
 const QuizController = {
   create,
   list,
   find,
+  deleteQuiz,
 };
 
 export default QuizController;
