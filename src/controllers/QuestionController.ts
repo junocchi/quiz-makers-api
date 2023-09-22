@@ -8,8 +8,8 @@ import {
 
 const validateQuestion = (data: any): data is QuestionCreationAttributes => {
   const valid =
-    typeof data?.question_text === "string" &&
-    !Number.isNaN(parseInt(data?.quiz_id));
+    typeof data?.questionText === "string" &&
+    !Number.isNaN(parseInt(data?.quizId));
 
   if (!valid) console.log(data);
 

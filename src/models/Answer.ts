@@ -11,7 +11,7 @@ export type AnswerAttributes = {
 
 // We're telling the Model that 'id' is optional
 // when creating an instance of the model (such as using Model.create()).
-type AnswerCreationAttributes = Optional<AnswerAttributes, "id">;
+export type AnswerCreationAttributes = Optional<AnswerAttributes, "id">;
 
 class Answer extends Model<AnswerAttributes, AnswerCreationAttributes> {
   declare id: number;
