@@ -1,11 +1,14 @@
 import Router from "@koa/router";
 import Question, { QuestionCreationAttributes } from "../models/Question.js";
+import {
+  QuestionListResponse,
+  QuizApiResponse,
+  QuizListResponse,
+} from "../api/QuizApi.js";
 
 const validateQuestion = (data: any): data is QuestionCreationAttributes => {
   const valid =
     typeof data?.question_text === "string" &&
-    // question is not boolean, only the answers. So we dont need the line below
-    // typeof data?.is_correct === "boolean" &&
     !Number.isNaN(parseInt(data?.quiz_id));
 
   if (!valid) console.log(data);
@@ -30,7 +33,8 @@ const create: Router.Middleware = async (ctx) => {
 
 const list: Router.Middleware = async (ctx) => {
   const all = await Question.findAll();
-  ctx.body = all;
+  const response: QuestionListResponse = { questions: all };
+  ctx.body = response;
 };
 
 const QuestionController = {
