@@ -12,7 +12,7 @@ const getByQuestionId: Router.Middleware = async (ctx) => {
     const answers = await Answer.findAll({
       where: { questionId: questionId },
     });
-    ctx.body = { question_id: questionId, answers };
+    ctx.body = { questionId: questionId, answers };
   } catch (err) {
     console.error(err);
     ctx.response.status = 500;
@@ -22,8 +22,7 @@ const getByQuestionId: Router.Middleware = async (ctx) => {
 };
 
 const validateAnswer = (data: any): data is AnswerCreationAttributes => {
-  const valid =
-    typeof data?.answer_text === "string" && !Number.isNaN(parseInt);
+  const valid = typeof data?.answerText === "string" && !Number.isNaN(parseInt);
 
   if (!valid) console.log(data);
 
@@ -51,6 +50,7 @@ const create: Router.Middleware = async (ctx) => {
 const getCorrectAnswer: Router.Middleware = () => {};
 
 const AnswerController = {
+  create,
   getByQuestionId,
   getCorrectAnswer,
 };
