@@ -22,6 +22,13 @@ export type QuestionErrorResponse = {
 
 export type QuizCreateResponse = { id: number };
 
+export type AttemptCreateResponse = {
+  id: number;
+  userName: string;
+  quizId: number;
+  score: number;
+};
+
 export type Quiz = {
   id: number;
   title: string;

@@ -1,6 +1,7 @@
 import Answer from "../models/Answer.js";
 import Question from "../models/Question.js";
 import Quiz from "../models/Quiz.js";
+import Attempt from "../models/Attempt.js";
 
 export const seedDb = async () => {
   await Quiz.truncate({ cascade: true, restartIdentity: true });
