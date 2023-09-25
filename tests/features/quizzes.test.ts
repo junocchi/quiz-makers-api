@@ -33,3 +33,9 @@ test("Deleting a quiz", async () => {
   expect(response.status).toBe(200);
   expect(response.body.message).toBe("Quiz with ID: 1 deleted");
 });
+
+test("Deleting a question", async () => {
+  const response = await request(app.callback()).delete("/questions/1");
+  expect(response.status).toBe(200);
+  expect(response.body.message).toBe("Question with ID: 1 deleted");
+});

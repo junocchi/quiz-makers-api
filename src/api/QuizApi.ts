@@ -16,6 +16,10 @@ export type QuizErrorResponse = {
   err: string;
 };
 
+export type QuestionErrorResponse = {
+  err: string;
+};
+
 export type QuizCreateResponse = { id: number };
 
 export type Quiz = {
@@ -41,6 +45,10 @@ export type QuestionApiResponse = {
 };
 
 export type QuizDeleteResponse = {
+  message: string;
+};
+
+export type QuestionDeleteResponse = {
   message: string;
 };
 
