@@ -60,6 +60,12 @@ test("Create an attempt", async () => {
   expect(body[body.length - 1].userName).toBe("Hilda");
 });
 
+test("List all attempts for one quiz", async () => {
+  const response = await request(app.callback()).get("/attempts/1");
+  expect(response.status).toBe(200);
+  expect(response.body.attempts[0].quizId).toBe(1);
+});
+
 test("list top x attempts", async () => {
   const response = await request(app.callback()).get("/attempts/1/top/2");
   expect(response.status).toBe(200);
