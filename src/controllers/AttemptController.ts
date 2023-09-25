@@ -1,5 +1,5 @@
 import Attempt, { AttemptCreationAttributes } from "../models/Attempt.js";
-import { AttemptCreateResponse } from "../api/QuizApi.js";
+import { AttemptCreateResponse, AttemptListResponse } from "../api/QuizApi.js";
 import Router from "@koa/router";
 
 const validateAttempt = (data: any): data is AttemptCreationAttributes => {
@@ -31,6 +31,12 @@ const create: Router.Middleware = async (ctx) => {
   }
 };
 
+const list: Router.Middleware = async (ctx) => {
+  const all = await Attempt.findAll();
+  const response: AttemptListResponse = { attempts: all };
+  ctx.body = response;
+};
+
 const ping: Router.Middleware = async (ctx) => {
   ctx.body = { message: "pong! " };
 };
@@ -38,6 +44,7 @@ const ping: Router.Middleware = async (ctx) => {
 const AttemptController = {
   create,
   ping,
+  list,
 };
 
 export default AttemptController;

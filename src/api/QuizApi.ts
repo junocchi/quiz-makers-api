@@ -1,5 +1,6 @@
 import { ForeignKey } from "sequelize";
 import Question from "../models/Question.js";
+import Attempt from "../models/Attempt.js";
 
 export type QuizApiQuestion = {
   id: number;
@@ -21,13 +22,6 @@ export type QuestionErrorResponse = {
 };
 
 export type QuizCreateResponse = { id: number };
-
-export type AttemptCreateResponse = {
-  id: number;
-  userName: string;
-  quizId: number;
-  score: number;
-};
 
 export type Quiz = {
   id: number;
@@ -61,4 +55,16 @@ export type QuestionDeleteResponse = {
 
 export type CorrectAnswerResponse = {
   message: string;
+};
+
+// Attempts:
+export type AttemptCreateResponse = {
+  id: number;
+  userName: string;
+  quizId: number;
+  score: number;
+};
+
+export type AttemptListResponse = {
+  attempts: Attempt[];
 };

@@ -39,3 +39,21 @@ test("Deleting a question", async () => {
   expect(response.status).toBe(200);
   expect(response.body.message).toBe("Question with ID: 1 deleted");
 });
+
+test("List all attempts", async () => {
+  const response = await request(app.callback()).get("/attempts");
+  expect(response.status).toBe(200);
+  expect(response.body.attempts[0].id).toBe(1);
+});
+
+test("Create an attempt", async () => {
+  const req = await request(app.callback()).post("/attempts/new").send({
+    userName: "Hilda",
+    quizId: 1,
+    score: 1,
+  });
+  const response = await request(app.callback()).get("/attempts");
+  const body = response.body.attempts;
+  expect(req.status).toBe(200);
+  expect(body[body.length - 1].userName).toBe("Hilda");
+});
