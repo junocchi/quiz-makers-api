@@ -21,9 +21,10 @@ export const seedDb = async () => {
     isCorrect: false,
   });
 
+  const geographyQuiz = await Quiz.create({ title: "Geography Quiz" });
   // geography question 1
   const geographyQuestion1 = await Question.create({
-    quizId: quiz.id,
+    quizId: geographyQuiz.id,
     questionText: "What is the capital of France?",
   });
   await Answer.create({
@@ -44,7 +45,7 @@ export const seedDb = async () => {
 
   // geography question 2
   const geographyQuestion2 = await Question.create({
-    quizId: quiz.id,
+    quizId: geographyQuiz.id,
     questionText: "Which river is the longest in the world?",
   });
   await Answer.create({
@@ -65,7 +66,7 @@ export const seedDb = async () => {
 
   // geography question 3
   const geographyQuestion3 = await Question.create({
-    quizId: quiz.id,
+    quizId: geographyQuiz.id,
     questionText: "Which country is known as the Land of the Rising Sun?",
   });
   await Answer.create({
@@ -86,7 +87,7 @@ export const seedDb = async () => {
 
   // geography question 4
   const geographyQuestion4 = await Question.create({
-    quizId: quiz.id,
+    quizId: geographyQuiz.id,
     questionText: "What is the largest desert in the world?",
   });
   await Answer.create({
@@ -107,7 +108,7 @@ export const seedDb = async () => {
 
   // geography question 5
   const geographyQuestion5 = await Question.create({
-    quizId: quiz.id,
+    quizId: geographyQuiz.id,
     questionText:
       "In which continent is the Amazon Rainforest primarily located?",
   });
@@ -127,9 +128,10 @@ export const seedDb = async () => {
     isCorrect: false,
   });
 
+  const artsQuiz = await Quiz.create({ title: "Arts Quiz" });
   // arts question 1
   const artsQuestion1 = await Question.create({
-    quizId: quiz.id,
+    quizId: artsQuiz.id,
     questionText: "Who wrote the play 'Romeo and Juliet'?",
   });
   await Answer.create({
@@ -150,7 +152,7 @@ export const seedDb = async () => {
 
   // arts question 2
   const artsQuestion2 = await Question.create({
-    quizId: quiz.id,
+    quizId: artsQuiz.id,
     questionText: "Who painted the Mona Lisa?",
   });
   await Answer.create({
@@ -171,7 +173,7 @@ export const seedDb = async () => {
 
   // arts question 3
   const artsQuestion3 = await Question.create({
-    quizId: quiz.id,
+    quizId: artsQuiz.id,
     questionText: "Which composer is famous for his Ninth Symphony?",
   });
   await Answer.create({
@@ -192,7 +194,7 @@ export const seedDb = async () => {
 
   // arts question 4
   const artsQuestion4 = await Question.create({
-    quizId: quiz.id,
+    quizId: artsQuiz.id,
     questionText:
       "Which artist is famous for creating the 'Campbell's Soup Cans' artwork?",
   });
@@ -214,7 +216,7 @@ export const seedDb = async () => {
 
   // arts question 5
   const artsQuestion5 = await Question.create({
-    quizId: quiz.id,
+    quizId: artsQuiz.id,
     questionText: "Who sculpted the famous statue of David?",
   });
   await Answer.create({
@@ -233,109 +235,114 @@ export const seedDb = async () => {
     isCorrect: false,
   });
 
-  // arts question 1
-  const artsQuestion1 = await Question.create({
-    quizId: quiz.id,
-    questionText: "Who wrote the play 'Romeo and Juliet'?",
-  });
-  await Answer.create({
-    questionId: artsQuestion1.id,
-    answerText: "William Shakespeare",
-    isCorrect: true,
-  });
-  await Answer.create({
-    questionId: artsQuestion1.id,
-    answerText: "Jane Austen",
-    isCorrect: false,
-  });
-  await Answer.create({
-    questionId: artsQuestion1.id,
-    answerText: "Charles Dickens",
-    isCorrect: false,
-  });
-
-  // arts question 2
-  const artsQuestion2 = await Question.create({
-    quizId: quiz.id,
-    questionText: "Who painted the Mona Lisa?",
-  });
-  await Answer.create({
-    questionId: artsQuestion2.id,
-    answerText: "Vincent van Gogh",
-    isCorrect: false,
-  });
-  await Answer.create({
-    questionId: artsQuestion2.id,
-    answerText: "Leonardo da Vinci",
-    isCorrect: true,
-  });
-  await Answer.create({
-    questionId: artsQuestion2.id,
-    answerText: "Michelangelo",
-    isCorrect: false,
-  });
-
-  // arts question 3
-  const artsQuestion3 = await Question.create({
-    quizId: quiz.id,
-    questionText: "Which composer is famous for his Ninth Symphony?",
-  });
-  await Answer.create({
-    questionId: artsQuestion3.id,
-    answerText: "Wolfgang Amadeus Mozart",
-    isCorrect: false,
-  });
-  await Answer.create({
-    questionId: artsQuestion3.id,
-    answerText: "Pyotr Ilyich Tchaikovsky",
-    isCorrect: false,
-  });
-  await Answer.create({
-    questionId: artsQuestion3.id,
-    answerText: "Ludwig van Beethoven",
-    isCorrect: true,
-  });
-
-  // arts question 4
-  const artsQuestion4 = await Question.create({
-    quizId: quiz.id,
+  const historyQuiz = await Quiz.create({ title: "History Quiz" });
+  // history question 1
+  const historyQuestion1 = await Question.create({
+    quizId: historyQuiz.id,
     questionText:
-      "Which artist is famous for creating the 'Campbell's Soup Cans' artwork?",
+      "Who was the first female Prime Minister of the United Kingdom?",
   });
   await Answer.create({
-    questionId: artsQuestion4.id,
-    answerText: "Andy Warhol",
+    questionId: historyQuestion1.id,
+    answerText: "Margaret Thatcher",
     isCorrect: true,
   });
   await Answer.create({
-    questionId: artsQuestion4.id,
-    answerText: "Jackson Pollock",
+    questionId: historyQuestion1.id,
+    answerText: "Theresa May",
     isCorrect: false,
   });
   await Answer.create({
-    questionId: artsQuestion4.id,
-    answerText: "Georgia O'Keeffe",
+    questionId: historyQuestion1.id,
+    answerText: "Angela Merkel",
     isCorrect: false,
   });
 
-  // arts question 5
-  const artsQuestion5 = await Question.create({
-    quizId: quiz.id,
-    questionText: "Who sculpted the famous statue of David?",
+  // history question 2
+  const historyQuestion2 = await Question.create({
+    quizId: historyQuiz.id,
+    questionText:
+      "Which famous document established the principles of individual rights and limited government in England?",
   });
   await Answer.create({
-    questionId: artsQuestion5.id,
-    answerText: "Donatello",
+    questionId: historyQuestion2.id,
+    answerText: "Declaration of Independence",
     isCorrect: false,
   });
   await Answer.create({
-    questionId: artsQuestion5.id,
-    answerText: "Michelangelo",
+    questionId: historyQuestion2.id,
+    answerText: "Magna Carta",
     isCorrect: true,
   });
   await Answer.create({
-    questionId: artsQuestion5.id,
-    answerText: "Raphael",
+    questionId: historyQuestion2.id,
+    answerText: "Bill of Rights",
+    isCorrect: false,
+  });
+
+  // history question 3
+  const historyQuestion3 = await Question.create({
+    quizId: historyQuiz.id,
+    questionText:
+      "In which year did the Berlin Wall fall, leading to the reunification of Germany?",
+  });
+  await Answer.create({
+    questionId: historyQuestion3.id,
+    answerText: "1975",
+    isCorrect: false,
+  });
+  await Answer.create({
+    questionId: historyQuestion3.id,
+    answerText: "1991",
+    isCorrect: false,
+  });
+  await Answer.create({
+    questionId: historyQuestion3.id,
+    answerText: "1989",
+    isCorrect: true,
+  });
+
+  // history question 4
+  const historyQuestion4 = await Question.create({
+    quizId: historyQuiz.id,
+    questionText:
+      "What event is often considered the start of the Great Depression in the United States?",
+  });
+  await Answer.create({
+    questionId: historyQuestion4.id,
+    answerText: "Wall Street Crash of 1929",
+    isCorrect: true,
+  });
+  await Answer.create({
+    questionId: historyQuestion4.id,
+    answerText: "Prohibition",
+    isCorrect: false,
+  });
+  await Answer.create({
+    questionId: historyQuestion4.id,
+    answerText: "Dust Bowl",
+    isCorrect: false,
+  });
+
+  // history question 5
+  const historyQuestion5 = await Question.create({
+    quizId: historyQuiz.id,
+    questionText:
+      "Which European country is known as the birthplace of democracy?",
+  });
+  await Answer.create({
+    questionId: historyQuestion5.id,
+    answerText: "Italy",
+    isCorrect: false,
+  });
+  await Answer.create({
+    questionId: historyQuestion5.id,
+    answerText: "Greece",
+    isCorrect: true,
+  });
+  await Answer.create({
+    questionId: historyQuestion5.id,
+    answerText: "Spain",
     isCorrect: false,
   });
 };
