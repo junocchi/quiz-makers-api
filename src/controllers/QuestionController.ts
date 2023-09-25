@@ -1,7 +1,9 @@
 import Router from "@koa/router";
 import Question, { QuestionCreationAttributes } from "../models/Question.js";
 import {
+  QuestionDeleteResponse,
   QuestionListResponse,
+  QuestionErrorResponse,
   QuizApiResponse,
   QuizListResponse,
 } from "../api/QuizApi.js";
@@ -37,9 +39,32 @@ const list: Router.Middleware = async (ctx) => {
   ctx.body = response;
 };
 
+const deleteQuestion: Router.Middleware = async (ctx) => {
+  const id = ctx.params.id;
+  const quizId = ctx.params.quizId;
+  try {
+    // DELETE FROM questions WHERE id = <id>
+    await Question.destroy({ where: { id } });
+    // return message in correct shape
+    const response: QuestionDeleteResponse = {
+      message: `Question with ID: ${id} deleted`,
+    };
+    ctx.body = response;
+  } catch (err) {
+    console.log(err);
+    ctx.response.status = 500; //internal server error
+    const response: QuestionErrorResponse = {
+      err: `Unable to delete question with Id: ${id}`,
+    };
+
+    ctx.body = response;
+  }
+};
+
 const QuestionController = {
   create,
   list,
+  deleteQuestion,
 };
 
 export default QuestionController;
