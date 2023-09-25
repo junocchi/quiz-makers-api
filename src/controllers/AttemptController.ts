@@ -37,6 +37,19 @@ const list: Router.Middleware = async (ctx) => {
   ctx.body = response;
 };
 
+const listTopX: Router.Middleware = async (ctx) => {
+  const x = ctx.params.x;
+  const quizId = ctx.params.quizId;
+  const topX = await Attempt.findAll({
+    where: { quizId },
+    order: [["score", "DESC"]],
+    limit: parseInt(x),
+  });
+
+  const response: AttemptListResponse = { attempts: topX };
+  ctx.body = response;
+};
+
 const ping: Router.Middleware = async (ctx) => {
   ctx.body = { message: "pong! " };
 };
@@ -45,6 +58,7 @@ const AttemptController = {
   create,
   ping,
   list,
+  listTopX,
 };
 
 export default AttemptController;
