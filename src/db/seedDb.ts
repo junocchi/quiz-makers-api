@@ -346,4 +346,46 @@ export const seedDb = async () => {
     answerText: "Spain",
     isCorrect: false,
   });
+
+  // Attempts: Test Quiz
+  await Attempt.create({
+    userName: "Josh",
+    quizId: quiz.id,
+    score: 4,
+  });
+  await Attempt.create({
+    userName: "Hans",
+    quizId: quiz.id,
+    score: 6,
+  });
+  await Attempt.create({
+    userName: "Hilda",
+    quizId: quiz.id,
+    score: 6,
+  });
+  await Attempt.create({
+    userName: "Jenny",
+    quizId: quiz.id,
+    score: 8,
+  });
+  await Attempt.create({
+    userName: "Fox",
+    quizId: quiz.id,
+    score: 1,
+  });
+  await Attempt.create({
+    userName: "Hans",
+    quizId: quiz.id,
+    score: 8,
+  });
+  await Attempt.create({
+    userName: "Hans",
+    quizId: quiz.id,
+    score: 3,
+  });
+  await Attempt.create({
+    userName: "Hans",
+    quizId: quiz.id,
+    score: 9,
+  });
 };
